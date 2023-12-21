@@ -44,6 +44,7 @@ void loop() {
 }
 
 void handleRoot() {
+
     String html = "<!DOCTYPE html>"
                   "<html><head><title>Train Control</title>"
                   "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
@@ -62,6 +63,14 @@ void handleRoot() {
                   "<input type=\"range\" name=\"speed\" min=\"-100\" max=\"100\" value=\"0\">"
                   "<input type=\"submit\" value=\"Set Speed\">"
                   "</form>"
+                  "<h2>System Information</h2>"
+                  "<p><b>MAC Address:</b> " + WiFi.macAddress() + "</p>"
+                  "<p><b>Local IP:</b> " + WiFi.localIP().toString() + "</p>"
+                  "<p><b>Wi-Fi RSSI:</b> " + WiFi.RSSI() + " dBm</p>"
+                  "<p><b>CPU Frequency:</b> " + ESP.getCpuFreqMHz() + " MHz</p>"
+                  "<p><b>Flash Chip Size:</b> " + ESP.getFlashChipSize() + " bytes</p>"
+                  "<p><b>Free Heap Memory:</b> " + ESP.getFreeHeap() + " bytes</p>"
+                  "<p><b>Flash Chip ID:</b> " + ESP.getFlashChipId() + "</p>"
                   "</body></html>";
     server.send(200, "text/html", html);
 }
