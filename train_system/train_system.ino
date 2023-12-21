@@ -44,14 +44,26 @@ void loop() {
 }
 
 void handleRoot() {
-  String html = "<html><head><title>Train Control</title></head><body>"
-                "<h1>Train Speed Control</h1>"
-                "<form action=\"/speed\" method=\"POST\">"
-                "<input type=\"range\" name=\"speed\" min=\"-100\" max=\"100\" value=\"0\">"
-                "<input type=\"submit\" value=\"Set Speed\">"
-                "</form>"
-                "</body></html>";
-  server.send(200, "text/html", html);
+    String html = "<!DOCTYPE html>"
+                  "<html><head><title>Train Control</title>"
+                  "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
+                  "<style>"
+                  "body { font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 0; background-color: #f3f3f3; }"
+                  "h1 { color: #333; }"
+                  "form { margin: 20px; }"
+                  "input[type=range] { width: 80%; -webkit-appearance: none; margin: 10px 0; }"
+                  "input[type=range]:focus { outline: none; }"
+                  "input[type=submit] { border: none; padding: 10px 20px; background-color: #4CAF50; color: white; cursor: pointer; }"
+                  "input[type=submit]:hover { background-color: #45a049; }"
+                  "</style>"
+                  "</head><body>"
+                  "<h1>Train Speed Control</h1>"
+                  "<form action=\"/speed\" method=\"POST\">"
+                  "<input type=\"range\" name=\"speed\" min=\"-100\" max=\"100\" value=\"0\">"
+                  "<input type=\"submit\" value=\"Set Speed\">"
+                  "</form>"
+                  "</body></html>";
+    server.send(200, "text/html", html);
 }
 
 void handleSpeed() {
