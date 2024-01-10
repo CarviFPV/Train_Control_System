@@ -8,8 +8,8 @@ const char* ssid = "TrainAP";
 const char* password = "12345678";
 
 // Rotary encoder pins
-const int pinA = D5;  // CLK
-const int pinB = D6;  // DT
+const int pinA = D6;  // CLK
+const int pinB = D5;  // DT
 const int pinSW = D7; // SW (Button)
 
 // LED pins
